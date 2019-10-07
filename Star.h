@@ -8,8 +8,8 @@
 
 class Starlist{
 private:
-    unsigned int current_planets;
-	List planets();
+	unsigned int current_planets;
+	List* planets;
 public:
 	Starlist();
 	~Starlist();
@@ -25,8 +25,8 @@ public:
 
 class Starvector{
 private:
-    unsigned int current_planets;
-	Vector planets;
+	unsigned int current_planets;
+	Vector* planets;
 public:
 	Starvector();
 	~Starvector();

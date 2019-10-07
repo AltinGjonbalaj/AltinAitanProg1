@@ -4,8 +4,8 @@
 
 //Starlist methods
 Starlist::Starlist(){
-	this->current_planets=0;
-	this->planets= new List();
+	this->current_planets = 0;
+	this->planets = new List();
 }
 Starlist::~Starlist(){
 //NEEDS IMPLEMENT
