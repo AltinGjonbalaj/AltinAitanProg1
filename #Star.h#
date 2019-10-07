@@ -1,15 +1,35 @@
 
 #ifndef STAR_H
 #define STAR_H
-#include "List.h"
-#include "Vector.h"
+#ifndef STARLIST_H
+#define STARLIST_H
+#ifndef STARVECTOR_H
+#define STARVECTOR_H
 #include "Planet.h"
 
-
-class Starlist{
+class Star{
 private:
-	unsigned int current_planets;
-	List* planets;
+    unsigned int current_planets;
+	
+public:
+    Planet ** planets;
+    Star();
+    ~Star();
+    int addPlanet();
+    void orbit();
+    void printStarInfo();
+    bool removePlanet(int);
+    Planet * getPlanet(int);
+    unsigned int getCurrentNumPlanets(){
+		return this->current_planets;
+    }
+
+};
+
+class StarList{
+private:
+    unsigned int current_planets;
+	
 public:
 	Starlist();
 	~Starlist();
@@ -23,10 +43,10 @@ public:
     }
 };
 
-class Starvector{
+class StarVector{
 private:
-	unsigned int current_planets;
-	Vector* planets;
+    unsigned int current_planets;
+
 public:
 	Starvector();
 	~Starvector();
@@ -39,4 +59,6 @@ public:
 		return this->current_planets;
     }
 };
+#endif
+#endif
 #endif
