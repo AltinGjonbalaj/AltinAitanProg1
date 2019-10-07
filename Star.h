@@ -8,7 +8,7 @@
 class Star{
 private:
     unsigned int current_planets;
-	
+
 public:
     Planet ** planets;
     Star();

@@ -1,34 +1,28 @@
 #ifndef LIST_H
 #define LIST_H
+#include "Planet.h"
+#include <cstdlib>
 
 class Node{
-private:
+public:
 	Planet* Payload;
 	Node* next;
 	Node* prev;
-        
-public:
-	inline Planet(){return Payload;}
-	inline Node* next(){return next;}
-
+	Node();
 };
 
 class List{
 private:
-	unsigned int size;
 	Node* head = NULL;
 	Node* tail = NULL;
 	Node* curr = head;
 public:
-	inline Node* nextnode(){curr = curr->next(); return curr;}
 	List();
 	~List();
 	void insert(unsigned int, Planet*);
 	Planet* read(unsigned int);
 	bool remove (unsigned int);
 	unsigned int size();
-
-        //you may add any additional methods you may need.
+	inline Node* nextnode(){curr = curr->next; return curr;}
 };
-
 #endif
