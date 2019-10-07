@@ -1,38 +1,57 @@
 #ifndef STAR_H
 #define STAR_H
 #include "Planet.h"
+
+class Star{
+private:
+    unsigned int current_planets;
+	
+public:
+    Planet ** planets;
+    Star();
+    ~Star();
+    int addPlanet();
+    void orbit();
+    void printStarInfo();
+    bool removePlanet(int);
+    Planet * getPlanet(int);
+    unsigned int getCurrentNumPlanets(){
+		return this->current_planets;
+    }
+
+};
+
 class StarList{
 private:
     unsigned int current_planets;
-    int next_id;
+	
 public:
-    Planet **planets;
-    StarList();
-    ~StarList();
-    int addPlanet();
-    bool removePlanet(int);
-    Planet* getPlanet(int);
-    Planet getFurthest();
-    void orbit();
-    void printStarInfo();
-    inline unsigned int getCurrentNumPlanets(){return current_planets;}
-    //you may add any additional methods you may need.
+	Starlist();
+	~Starlist();
+	unsigned long addPlanet();
+	bool removePlanet(unsigned long);
+	Planet * getPlanet(unsigned long);
+	void orbit();
+	void printStarInfo();
+	unsigned int getCurrentNumPlanets(){
+		return this->current_planets;
+    }
 };
+
 class StarVector{
 private:
     unsigned int current_planets;
-    int next_id;
+
 public:
-    Planet **planets;
-    StarVector();
-    ~StarVector();
-    int addPlanet();
-    bool removePlanet(int);
-    Planet* getPlanet(int);
-    Planet getFurthest();
-    void orbit();
-    void printStarInfo();
-    inline unsigned int getCurrentNumPlanets(){return current_planets;}
-    //you may add any additional methods you may need.
+	Starvector();
+	~Starvector();
+	unsigned long addPlanet();
+	bool removePlanet(unsigned long);
+	Planet * getPlanet(unsigned long);
+	void orbit();
+	void printStarInfo();
+	int getCurrentNumPlanets(){
+		return this->current_planets;
+    }
 };
 #endif

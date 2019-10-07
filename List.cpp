@@ -1,8 +1,8 @@
 #include"List.h"
 #include"Planet.h"
 List::List(){
-this->head=NULL;
-this->tail=NULL;
+	this->head=NULL;
+	this->tail=NULL;
 // A pointer to a head and tail node, both initialized to NULL
 }
 List::~List(){

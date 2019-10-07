@@ -2,6 +2,7 @@
 #include "Planet.h"
 #include <cstdlib>
 
+//Star methods
 Star::Star(){
 	this->current_planets=0;
 	this->planets=NULL;
@@ -11,13 +12,7 @@ Star::~Star(){
 		this->planets[i]=NULL;
 	}
 	delete this->planets;
-
 }
-
-
-
-
-
 int Star::addPlanet(){
 
 	unsigned int tx = (this->current_planets);
@@ -40,7 +35,6 @@ int Star::addPlanet(){
 	this->current_planets+=1;
 	return tx;
 }
-
 bool Star::removePlanet(int id){
 	unsigned int tx = (this->current_planets);
 	Planet** newPlanets= NULL;
@@ -67,7 +61,6 @@ bool Star::removePlanet(int id){
 	this->current_planets--;
 	return true;
 }
-
 Planet* Star::getPlanet(int id){
 	unsigned int tx = (this->current_planets);	
 	for(unsigned int i=0;i<=tx;i++){
@@ -75,13 +68,59 @@ Planet* Star::getPlanet(int id){
 		}
 	return NULL;
 }
-
-
 void Star::orbit(){
 	for(unsigned int i=0; i<this->current_planets; i++){
 		this->planets[i]->orbit();
 	}
 }
+void Star::printStarInfo(){
+	
+}
 
-void Star::printStarInfo(){}
+//Starlist methods
+Starlist(){
+	this->current_planets=0;
+	this->planets=NULL;
+}
+~Starlist(){
+	
+}
+unsigned long addPlanet(){
+	
+}
+bool removePlanet(unsigned long){
+	
+}
+Planet * getPlanet(unsigned long){
+	
+}
+void orbit(){
+	
+}
+void printStarInfo(){
+	
+}
 
+//Starvector methods
+Starvector(){
+	this->current_planets=0;
+	this->planets=NULL;
+}
+~Starvector(){
+	
+}
+unsigned long addPlanet(){
+	
+}
+bool removePlanet(unsigned long){
+	
+}
+Planet * getPlanet(unsigned long){
+	
+}
+void orbit(){
+	
+}
+void printStarInfo(){
+	
+}
