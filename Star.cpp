@@ -4,11 +4,10 @@
 
 //Starlist methods
 Starlist::Starlist(){
-	this->current_planets = 0;
-	this->planets = new List();
+	this->planets = NULL;
 }
 Starlist::~Starlist(){
-//NEEDS IMPLEMENT
+	delete planets;
 }
 unsigned long Starlist::addPlanet(){
 	unsigned int z= rand()%100000;

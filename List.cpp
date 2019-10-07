@@ -6,58 +6,65 @@ List::List(){
 // A pointer to a head and tail node, both initialized to NULL
 }
 List::~List(){
-
-  // A destructor to clean up memory
+	Node* del = this->head;
+	Node* curr;
+	while(this->head != NULL){
+		curr = this->head->next;
+		delete del;
+		del = curr;
+	}
 }
 void List::insert(unsigned int index, Planet * p){
-  if(this->head==NULL){
-    this->head=p;
-    this->tail=p;
+  Node* temp = new Node(p); 
+  if(this->head == NULL){
+    this->head = temp;
+    this->tail = temp;
     return;
   }
-  if (index=>this->size){
-    p->prev=this->tail;
-    this->tail->next=p;
-    this->tail=p;
+  if (index >= tsize){
+    temp->prev = this->tail;
+    this->tail->next= temp;
+    this->tail= temp;
     return;
   }
+
   this->curr= this->head;
-  for (unsigned int i=0;i<index;i++){
-    this->next();
+  for (unsigned int i=0; i<index; i++){
+    this->curr = curr->next;
   }
-  p->next=curr->next;
-  p->prev=curr;
-  curr->next=p;
-  this->size++;
+  temp->next = curr->next;
+  temp->prev = curr;
+  curr->next = temp;
+  this->tsize++;
   return;
 // inserts an element at index, increasing the List size by 1
 // if the insert index is out of bounds, you should append to
 // the end of the list
 }
 Planet* List::read(unsigned int index){
-  if(index>=this->size||index<0){return NULL;}
+  if(index>=this->tsize||index<0){return NULL;}
   this->curr= this->head;
   for (unsigned int i=0;i<index;i++){
-    this->next();
+    this->curr = curr->next;
   }
-  return this->curr;
+  return this->curr->Payload;
 
 // returns a pointer to the Planet object at index
 // if index is out of bounds, return NULL
 }
 bool List::remove(unsigned int index){
-    if(index>=this->size||index<0){return false;}
+    if(index>=this->tsize||index<0){return false;}
     this->curr= this->head;
     for (unsigned int i=0;i<index;i++){
-      this->next();
+    	this->curr = curr->next;
     }
     curr->next->prev=curr->prev;
     curr->prev->next=curr->next;
-    this->size--;
-
+    this->tsize--;
+	return true;
 // remove the Planet object at index, decreasing the size of the Vector by 1.
 // return true on successful deletion or false if index is out of bounds
 }
 unsigned int List::size(){
-return this->size;
+	return this->tsize;
 }

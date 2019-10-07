@@ -7,10 +7,9 @@
 
 
 class Starlist{
-private:
+public:
 	unsigned int current_planets;
 	List* planets;
-public:
 	Starlist();
 	~Starlist();
 	unsigned long addPlanet();
@@ -24,10 +23,9 @@ public:
 };
 
 class Starvector{
-private:
+public:
 	unsigned int current_planets;
 	Vector* planets;
-public:
 	Starvector();
 	~Starvector();
 	unsigned long addPlanet();
