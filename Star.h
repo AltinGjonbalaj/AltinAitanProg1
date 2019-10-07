@@ -7,8 +7,8 @@ private:
     int next_id;
 public:
     Planet **planets;
-    Star();
-    ~Star();
+    StarList();
+    ~StarList();
     int addPlanet();
     bool removePlanet(int);
     Planet* getPlanet(int);
@@ -24,8 +24,8 @@ private:
     int next_id;
 public:
     Planet **planets;
-    Star();
-    ~Star();
+    StarVector();
+    ~StarVector();
     int addPlanet();
     bool removePlanet(int);
     Planet* getPlanet(int);
