@@ -1,8 +1,20 @@
 #include"List.h"
 #include"Planet.h"
+
+Node::Node(Planet * p){
+	Payload = p;
+	next = NULL;
+	prev = NULL;
+}
+
+Node::~Node(){
+	delete Payload;
+}
+
 List::List(){
-	this->head=NULL;
-	this->tail=NULL;
+	this->head = NULL;
+	this->tail = NULL;
+	this->tsize = 0;
 // A pointer to a head and tail node, both initialized to NULL
 }
 List::~List(){
@@ -58,8 +70,8 @@ bool List::remove(unsigned int index){
     for (unsigned int i=0;i<index;i++){
     	this->curr = curr->next;
     }
-    curr->next->prev=curr->prev;
-    curr->prev->next=curr->next;
+    curr->next->prev = curr->prev;
+    curr->prev->next = curr->next;
     this->tsize--;
 	return true;
 // remove the Planet object at index, decreasing the size of the Vector by 1.

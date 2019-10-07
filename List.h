@@ -5,11 +5,11 @@
 
 class Node{
 public:
+	Node(Planet *);
+	~Node();
 	Planet* Payload;
 	Node* next;
 	Node* prev;
-	Node(Planet *);
-	~Node();
 };
 
 class List{
