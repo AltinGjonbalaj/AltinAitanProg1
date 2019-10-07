@@ -3,7 +3,7 @@
 
 Planet::Planet(unsigned int distance){
 	this->distance = distance;
-	this->id=&this;
+	this->id= (unsigned long)this;
     	this->pos = 0;
 	int i = rand()%3;
 	if(i==0){this->type='h';}
