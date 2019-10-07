@@ -1,28 +1,10 @@
+
 #ifndef STAR_H
 #define STAR_H
 #include "List.h"
 #include "Vector.h"
 #include "Planet.h"
 
-
-class Star{
-private:
-    unsigned int current_planets;
-
-public:
-    Planet ** planets;
-    Star();
-    ~Star();
-    int addPlanet();
-    void orbit();
-    void printStarInfo();
-    bool removePlanet(int);
-    Planet * getPlanet(int);
-    unsigned int getCurrentNumPlanets(){
-		return this->current_planets;
-    }
-
-};
 
 class Starlist{
 private:

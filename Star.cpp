@@ -3,14 +3,14 @@
 #include <cstdlib>
 
 //Starlist methods
-Starlist(){
+Starlist::Starlist(){
 	this->current_planets=0;
 	this->planets= new List();
 }
-~Starlist(){
+Starlist::~Starlist(){
 //NEEDS IMPLEMENT
 }
-unsigned long addPlanet(){
+unsigned long Starlist::addPlanet(){
 	unsigned int z= rand()%100000;
 	unsigned long b=0;
 	Planet p = new planet(z);
@@ -18,7 +18,7 @@ unsigned long addPlanet(){
 	this->planets.insert(this->current_planets,p);
 	return b;
 }
-bool removePlanet(unsigned long id){
+bool Starlist::removePlanet(unsigned long id){
 	unsigned int i=0;
 	unsigned long idx=0;
 	while(this->planets.read(i)!=NULL){
@@ -29,7 +29,7 @@ bool removePlanet(unsigned long id){
 	}
 	return false;
 }
-Planet * getPlanet(unsigned long id){
+Planet * Starlist::getPlanet(unsigned long id){
 	unsigned int i=0;
 	unsigned long idx=0;
 	while(this->planets.read(i)!=NULL){
@@ -39,7 +39,7 @@ Planet * getPlanet(unsigned long id){
 	}
 	return NULL;
 }
-void orbit(){
+void Starlist::orbit(){
 		unsigned int i=0;
 	while(this->planets.read(i)!=NULL){
 		this->planets.read(i).orbit();
@@ -47,19 +47,19 @@ void orbit(){
 	}
 
 }
-void printStarInfo(){
+void Starlist::printStarInfo(){
 //NEEDS IMPLEMENT
 }
 
 //Starvector methods
-Starvector(){
+Starvector::Starvector(){
 	this->current_planets=0;
 	this->planets=NULL;
 }
-~Starvector(){
+Starvector::~Starvector(){
 //NEEDS IMPLEMENT
 }
-unsigned long addPlanet(){
+unsigned long Starvector::addPlanet(){
 	unsigned int z= rand()%100000;
 	unsigned long b=0;
 	Planet p = new planet(z);
@@ -67,7 +67,7 @@ unsigned long addPlanet(){
 	this->planets.insert(this->current_planets,p);
 	return b;
 }
-bool removePlanet(unsigned long id){
+bool Starvector::removePlanet(unsigned long id){
 	unsigned int i=0;
 	unsigned long idx=0;
 	while(this->planets.read(i)!=NULL){
@@ -78,14 +78,14 @@ bool removePlanet(unsigned long id){
 	}
 	return false;
 }
-Planet * getPlanet(unsigned long id){
+Planet * Starvector::getPlanet(unsigned long id){
 //NEEDS IMPLEMENT
 }
-void orbit(){
+void Starvector::orbit(){
 	unsigned int i=0;
 	while(this->planets.read(i)!=NULL){
 		this->planets.read(i).orbit();
 	i++;}
-void printStarInfo(){
+void Starvector::printStarInfo(){
 //NEEDS IMPLEMENT
 }
