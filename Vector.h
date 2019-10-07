@@ -1,6 +1,7 @@
 #ifndef VECTOR_H
 #define VECTOR_H
-
+#include "Planet.h"
+#include <cstdlib>
 class Vector{
 private:
 	unsigned int current_planets;

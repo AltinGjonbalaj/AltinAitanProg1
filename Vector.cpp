@@ -1,6 +1,5 @@
 #include "Vector.h"
 #include "Planet.h"
-
 Vector::Vector(){
 this->planets= NULL;
 this->current_planets=0;
@@ -19,7 +18,7 @@ void Vector::insert(unsigned int index,Planet* p){
 	if(index>tx-1){return;}	
 	Planet** newPlanets= NULL;
 	newPlanets =new Planet*[tx+1];
-	for(i<index){
+	for(i=0;i<index;i++){
 		newPlanets [i]=this->planets[i];	
 	}
 	newPlanets[index]=p;
@@ -32,9 +31,10 @@ void Vector::insert(unsigned int index,Planet* p){
 }
 
 Planet* Vector::read(unsigned int index){
+	unsigned int tx=this->current_planets;
 	if(index>=tx){return NULL;}
-	if(this->planets[i]==NULL){return NULL;}
-	return this->planets[i];
+	if(this->planets[index]==NULL){return NULL;}
+	return this->planets[index];
 
 }
 
