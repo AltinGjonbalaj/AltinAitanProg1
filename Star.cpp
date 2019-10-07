@@ -8,7 +8,7 @@ Starlist::Starlist(){
 	this->planets = new List();
 }
 Starlist::~Starlist(){
-//NEEDS IMPLEMENT
+	delete planets;
 }
 unsigned long Starlist::addPlanet(){
 	unsigned int z= rand()%100000;

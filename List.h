@@ -13,6 +13,7 @@ public:
 	Node* next;
 	Node* prev;
 	Node();
+	~Node();
 	Node(Planet* p);
 };
 

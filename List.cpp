@@ -6,14 +6,22 @@ this->Payload=p;
 this->next=NULL;
 this->prev=NULL;
 }
+List::Node::~Node(){
+	delete Payload;
+}
 List::List(){
 	this->head=NULL;
 	this->tail=NULL;
 // A pointer to a head and tail node, both initialized to NULL
 }
 List::~List(){
-
-  // A destructor to clean up memory
+    Node* del = this->head;
+	    Node* curr;
+	    while(this->head != NULL){
+		    curr = this->head->next;
+		    delete del;
+		    del = curr;
+	    }
 }
 void List::insert(unsigned int index, Planet * p){
   Node* z= new Node(p);
