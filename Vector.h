@@ -5,7 +5,7 @@
 class Vector{
 private:
 	unsigned int current_planets;
-	int next_id;
+	unsigned int vSize;
 public:
 	Planet**planets;
 	Vector();

@@ -1,5 +1,6 @@
 #include "Vector.h"
 #include "Planet.h"
+
 Vector::Vector(){
 this->planets= NULL;
 this->current_planets=0;
@@ -12,19 +13,29 @@ Vector::~Vector(){
 	delete this->planets;
 }
 
+Planet* Vector::read(unsigned int index){
+	unsigned int tx=this->current_planets;
+	if(index>=tx){return NULL;}
+	if(this->planets[index]==NULL){return NULL;}
+	return this->planets[index];
+
+}
+
+
 void Vector::insert(unsigned int index,Planet* p){
 	unsigned int i=0;
 	unsigned int tx=this->current_planets;
 	Planet** newPlanets= NULL;
 	newPlanets =new Planet*[tx+1];
-	if(index>tx-1){
-		for(i=0;i<tx;i++){
-		newPlanets [i]=this->planets[i];	
+	if(index>this->size()){
+		for(i=0;i<index;i++){
+		newPlanets [i]=this->read(i);
 		}
-
+	newPlanets [index]=p;
 	delete this->planets;
 	this->planets= newPlanets;
 	this->current_planets+=1;
+	this->vSize= index+1;
 	return;
 	}
 	
@@ -38,15 +49,9 @@ void Vector::insert(unsigned int index,Planet* p){
 	delete this->planets;
 	this->planets= newPlanets;
 	this->current_planets+=1;
+	this->vSize++;
 }
 
-Planet* Vector::read(unsigned int index){
-	unsigned int tx=this->current_planets;
-	if(index>=tx){return NULL;}
-	if(this->planets[index]==NULL){return NULL;}
-	return this->planets[index];
-
-}
 
 bool Vector::remove(unsigned int index){
 	unsigned int tx = (this->current_planets);
@@ -62,8 +67,9 @@ bool Vector::remove(unsigned int index){
 
 	}
 	this->current_planets--;
+	this->vSize++;
 	return true;
 }
 unsigned int Vector::size(){
-return this->current_planets;
+return this->vSize;
 }
