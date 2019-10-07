@@ -15,9 +15,19 @@ Vector::~Vector(){
 void Vector::insert(unsigned int index,Planet* p){
 	unsigned int i=0;
 	unsigned int tx=this->current_planets;
-	if(index>tx-1){return;}	
 	Planet** newPlanets= NULL;
 	newPlanets =new Planet*[tx+1];
+	if(index>tx-1){
+		for(i=0;i<tx;i++){
+		newPlanets [i]=this->planets[i];	
+		}
+
+	delete this->planets;
+	this->planets= newPlanets;
+	this->current_planets+=1;
+	return;
+	}
+	
 	for(i=0;i<index;i++){
 		newPlanets [i]=this->planets[i];	
 	}
