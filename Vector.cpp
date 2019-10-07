@@ -28,10 +28,12 @@ void Vector::insert(unsigned int index,Planet* p){
 	Planet** newPlanets= NULL;
 	newPlanets =new Planet*[tx+1];
 	if(index>this->size()){
+		newPlanets =new Planet*[index+1];
 		for(i=0;i<index;i++){
 		newPlanets [i]=this->read(i);
 		}
 	newPlanets [index]=p;
+	
 	delete this->planets;
 	this->planets= newPlanets;
 	this->current_planets+=1;
@@ -43,8 +45,10 @@ void Vector::insert(unsigned int index,Planet* p){
 		newPlanets [i]=this->planets[i];	
 	}
 	newPlanets[index]=p;
-	for(i=index;i<tx;i++){
+	if(index<tx){
+		for(i=index+1;i<tx;i++){
 		newPlanets [i]=this->planets[i];
+		}
 	}	
 	delete this->planets;
 	this->planets= newPlanets;
