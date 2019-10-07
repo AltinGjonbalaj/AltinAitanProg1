@@ -1,6 +1,9 @@
 #ifndef STAR_H
 #define STAR_H
+#include "List.h"
+#include "Vector.h"
 #include "Planet.h"
+
 
 class Star{
 private:
@@ -24,7 +27,7 @@ public:
 class StarList{
 private:
     unsigned int current_planets;
-	
+	List planets();
 public:
 	Starlist();
 	~Starlist();
@@ -41,7 +44,7 @@ public:
 class StarVector{
 private:
     unsigned int current_planets;
-
+	Vector planets;
 public:
 	Starvector();
 	~Starvector();
