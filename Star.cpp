@@ -8,7 +8,7 @@ Starlist(){
 	this->planets= new List();
 }
 ~Starlist(){
-	
+//NEEDS IMPLEMENT
 }
 unsigned long addPlanet(){
 	unsigned int z= rand()%100000;
@@ -48,7 +48,7 @@ void orbit(){
 
 }
 void printStarInfo(){
-	
+//NEEDS IMPLEMENT
 }
 
 //Starvector methods
@@ -57,7 +57,7 @@ Starvector(){
 	this->planets=NULL;
 }
 ~Starvector(){
-	
+//NEEDS IMPLEMENT
 }
 unsigned long addPlanet(){
 	unsigned int z= rand()%100000;
@@ -77,10 +77,9 @@ bool removePlanet(unsigned long id){
 	i++;
 	}
 	return false;
-	
 }
 Planet * getPlanet(unsigned long id){
-	
+//NEEDS IMPLEMENT
 }
 void orbit(){
 	unsigned int i=0;
@@ -88,5 +87,5 @@ void orbit(){
 		this->planets.read(i).orbit();
 	i++;}
 void printStarInfo(){
-	
+//NEEDS IMPLEMENT
 }

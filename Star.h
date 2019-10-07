@@ -24,7 +24,7 @@ public:
 
 };
 
-class StarList{
+class Starlist{
 private:
     unsigned int current_planets;
 	List planets();
@@ -41,7 +41,7 @@ public:
     }
 };
 
-class StarVector{
+class Starvector{
 private:
     unsigned int current_planets;
 	Vector planets;
