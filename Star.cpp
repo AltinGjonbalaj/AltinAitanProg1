@@ -13,17 +13,17 @@ Starlist::~Starlist(){
 unsigned long Starlist::addPlanet(){
 	unsigned int z= rand()%100000;
 	unsigned long b=0;
-	Planet p = new planet(z);
-	b=p.getID();
-	this->planets.insert(this->current_planets,p);
+	Planet* p = new Planet(z);
+	b=p->getID();
+	this->planets->insert(this->current_planets,p);
 	return b;
 }
 bool Starlist::removePlanet(unsigned long id){
 	unsigned int i=0;
 	unsigned long idx=0;
-	while(this->planets.read(i)!=NULL){
-		idx=this->planets.read(i).getID();
-		if(idx==id){this->planets.remove(i);
+	while(this->planets->read(i)!=NULL){
+		idx=this->planets->read(i)->getID();
+		if(idx==id){this->planets->remove(i);
 			return true;}
 	i++;
 	}
@@ -32,17 +32,17 @@ bool Starlist::removePlanet(unsigned long id){
 Planet * Starlist::getPlanet(unsigned long id){
 	unsigned int i=0;
 	unsigned long idx=0;
-	while(this->planets.read(i)!=NULL){
-		idx=this->planets.read(i).getID();
-		if(idx==id){return this->planets.read(i);}
+	while(this->planets->read(i)!=NULL){
+		idx=this->planets->read(i)->getID();
+		if(idx==id){return this->planets->read(i);}
 	i++;
 	}
 	return NULL;
 }
 void Starlist::orbit(){
 		unsigned int i=0;
-	while(this->planets.read(i)!=NULL){
-		this->planets.read(i).orbit();
+	while(this->planets->read(i)!=NULL){
+		this->planets->read(i)->orbit();
 	i++;
 	}
 
@@ -62,30 +62,39 @@ Starvector::~Starvector(){
 unsigned long Starvector::addPlanet(){
 	unsigned int z= rand()%100000;
 	unsigned long b=0;
-	Planet p = new planet(z);
-	b=p.getID();
-	this->planets.insert(this->current_planets,p);
+	Planet* p = new Planet(z);
+	b=p->getID();
+	this->planets->insert(this->current_planets,p);
 	return b;
 }
 bool Starvector::removePlanet(unsigned long id){
 	unsigned int i=0;
 	unsigned long idx=0;
-	while(this->planets.read(i)!=NULL){
-		idx=this->planets.read(i).getID();
-		if(idx==id){this->planets.remove(i);
+	while(this->planets->read(i)!=NULL){
+		idx=this->planets->read(i)->getID();
+		if(idx==id){this->planets->remove(i);
 			return true;}
 	i++;
 	}
 	return false;
 }
 Planet * Starvector::getPlanet(unsigned long id){
-//NEEDS IMPLEMENT
+unsigned int i=0;
+	unsigned long idx=0;
+	while(this->planets->read(i)!=NULL){
+		idx=this->planets->read(i)->getID();
+		if(idx==id){return this->planets->read(i);}
+	i++;
+	}
+	return NULL;
+
 }
 void Starvector::orbit(){
 	unsigned int i=0;
-	while(this->planets.read(i)!=NULL){
-		this->planets.read(i).orbit();
+	while(this->planets->read(i)!=NULL){
+		this->planets->read(i)->orbit();
 	i++;}
+}
 void Starvector::printStarInfo(){
 //NEEDS IMPLEMENT
 }
