@@ -59,7 +59,7 @@ void Starlist::printStarInfo(){
 //Starvector methods
 Starvector::Starvector(){
 	this->current_planets=0;
-	this->planets=NULL;
+	this->planets=new Vector();
 }
 Starvector::~Starvector(){
     delete planets;
@@ -76,6 +76,7 @@ std::cout<<"hit line";
 std::cout<<"hit line8";
 	this->planets->insert(this->current_planets,p);
 std::cout<<"hit line9";
+	this->current_planets++;
 	return b;
 }
 bool Starvector::removePlanet(unsigned long id){

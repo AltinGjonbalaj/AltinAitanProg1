@@ -21,7 +21,7 @@ Planet* Vector::read(unsigned int index){
 
 
 void Vector::insert(unsigned int index, Planet* p){
-unsigned int i=0;
+	unsigned int i=0;
 	unsigned int tx= this->vSize;
 	Planet** newPlanets= new Planet*[tx+1];
 	if(index> this->size()){
