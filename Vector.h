@@ -4,7 +4,6 @@
 #include <cstdlib>
 class Vector{
 private:
-	unsigned int current_planets;
 	unsigned int vSize;
 public:
 	Planet**planets;

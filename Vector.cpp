@@ -4,11 +4,11 @@
 
 Vector::Vector(){
 this->planets= NULL;
-this->current_planets=0;
+this->vSize=0;
 }
 
 Vector::~Vector(){
-	for(unsigned int i=0; i<current_planets; i++){
+	for(unsigned int i=0; i<vSize; i++){
 		this->planets[i]=NULL;
 	}
 	delete this->planets;
@@ -20,22 +20,19 @@ Planet* Vector::read(unsigned int index){
 }
 
 
-void Vector::insert(unsigned int index,Planet* p){
-	unsigned int i=0;
+void Vector::insert(unsigned int index, Planet* p){
+unsigned int i=0;
 	unsigned int tx= this->vSize;
-	Planet** newPlanets= NULL;
-	newPlanets =new Planet*[tx+1];
-	if(index>this->size()){
-		newPlanets =new Planet*[index+1];
-		for(i=0;i<index;i++){
+	Planet** newPlanets= new Planet*[tx+1];
+	if(index> this->size()){
+		newPlanets = new Planet*[index+1];
+		for(i=0;i <index;i++){
 		newPlanets [i]=this->read(i);
 		}
-	newPlanets [index]=p;
-	
-	delete this->planets;
-	this->planets= newPlanets;
-	this->current_planets+=1;
-	this->vSize= index+1;
+	    newPlanets [index]=p;
+	    delete this->planets;
+	    this->planets= newPlanets;
+	    this->vSize= index+1;
 	return;
 	}
 	
@@ -50,26 +47,23 @@ void Vector::insert(unsigned int index,Planet* p){
 	}	
 	delete this->planets;
 	this->planets= newPlanets;
-	this->current_planets+=1;
 	this->vSize++;
+
 }
 
 
 bool Vector::remove(unsigned int index){
-	unsigned int tx = (this->current_planets);
 	Planet** newPlanets= NULL;
-	newPlanets =new Planet*[tx-1];
-	if(index<0||index>=tx){return false;}
-	unsigned int idx=index;
-	for(unsigned int i=idx;i<tx-1;i++){
+	newPlanets =new Planet*[vSize-1];
+	if(index<0||index>=vSize){return false;}
+	for(unsigned int i=index;i<vSize-1;i++){
 		this->planets[i]=this->planets[i+1];		
 	}
-	for(unsigned int i=0;i<tx-1;i++){
+	for(unsigned int i=0;i<vSize-1;i++){
 			newPlanets[i]=this->planets[i];	
 
 	}
-	this->current_planets--;
-	this->vSize++;
+	this->vSize--;
 	return true;
 }
 unsigned int Vector::size(){
