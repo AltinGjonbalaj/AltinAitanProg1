@@ -6,6 +6,7 @@
 
 class List{
 private:
+	unsigned int current_planets;
 	class Node{
 public:
 	Planet* Payload;
