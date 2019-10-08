@@ -3,7 +3,7 @@
 #include <iostream>
 
 Vector::Vector(){
-this->planets= NULL;
+this->planets= new Planet*[0];
 this->vSize=0;
 }
 
@@ -11,7 +11,7 @@ Vector::~Vector(){
 	for(unsigned int i=0; i<vSize; i++){
 		delete planets[i];
 	}
-	delete[] this->planets;
+	delete[] planets;
 }
 
 Planet* Vector::read(unsigned int index){
@@ -27,7 +27,7 @@ void Vector::insert(unsigned int index, Planet* p){
 	if(index> this->size()){
 		newPlanets = new Planet*[index+1];
 		for(i=0;i <index;i++){
-		newPlanets [i]=this->read(i);
+			newPlanets [i]=this->read(i);
 		}
 	    newPlanets [index]=p;
 	    delete[] this->planets;
@@ -53,18 +53,19 @@ void Vector::insert(unsigned int index, Planet* p){
 
 
 bool Vector::remove(unsigned int index){
-	Planet** newPlanets= NULL;
-	newPlanets = new Planet*[vSize-1];
+	Planet** newPlanets=new Planet*[vSize-1];
 	if(index<0||index>=vSize){return false;}
-	for(unsigned int i=index;i<vSize-1;i++){
-		this->planets[i]=this->planets[i+1];		
+	for(unsigned int i=0;i<index;i++){
+		newPlanets[i]=this->planets[i];		
 	}
-	for(unsigned int i=0;i<vSize-1;i++){
-			newPlanets[i]=this->planets[i];	
+	for(unsigned int i=index;i<vSize-1;i++){
+			newPlanets[i]=this->planets[i+1];	
 
 	}
+	delete planets[index];
+	delete[] planets;
+	planets = newPlanets;
 	this->vSize--;
-	delete[] newPlanets;
 	return true;
 }
 unsigned int Vector::size(){

@@ -9,17 +9,17 @@ _Replace anything surrounded by the `< >` symbols._
 
 ## SUMMARY
 
-Team Members: < team member names >
+Team Members: < Altin Gjonbalaj, Aitan >
 
 < Provide a short description of your program's functionality. No more than a couple sentences. >
 
 ## GRACE DAYS
-Grace days used for this assignment: < # >
+Grace days used for this assignment: < 1 >
 
-Grace days remaining: < # >/5
+Grace days remaining: < 3 >/5
 
 ## KNOWN BUGS AND INCOMPLETE PARTS
- < What parts of the project you were not able to complete >
+ There are still many memory leaks in the project
 
 ## REFERENCES
  < List any outside resources used >

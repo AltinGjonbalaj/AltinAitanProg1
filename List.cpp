@@ -16,10 +16,11 @@ List::List(){
 // A pointer to a head and tail node, both initialized to NULL
 }
 List::~List(){
-	while(curr!= NULL){
-		Node* nextCurrent = curr->next;
-		delete this->curr;
-		curr = nextCurrent;	
+	Node* n = head;
+	while(n!= NULL){
+		Node* nextCurrent = n->next;
+		delete n;
+		n = nextCurrent;	
 	}
 	this->head = NULL;
 }
@@ -36,7 +37,6 @@ void List::insert(unsigned int index, Planet * p){
    	 this->tail->next=z;
     	 this->tail=z;
 	 this->current_planets++;
-	
     return;
   }
   this->curr= this->head;
@@ -47,7 +47,6 @@ void List::insert(unsigned int index, Planet * p){
   z->prev=curr;
   curr->next=z;
   this->current_planets++;
-  return;
 // inserts an element at index, increasing the List size by 1
 // if the insert index is out of bounds, you should append to
 // the end of the list
