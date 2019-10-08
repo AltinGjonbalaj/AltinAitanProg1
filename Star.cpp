@@ -1,6 +1,7 @@
 #include "Star.h"
 #include "Planet.h"
 #include <cstdlib>
+#include <iostream>
 
 //Starlist methods
 Starlist::Starlist(){
@@ -48,7 +49,9 @@ void Starlist::orbit(){
 
 }
 void Starlist::printStarInfo(){
-//NEEDS IMPLEMENT
+//    std::cout<< "This star is composed of planets: "<< std::endl;
+//	    for(int i = 0; i < (int)current_planets; i++){
+//		    std::cout<< "Planet" << planets->read(i)->getType() << ". With ID" << planets[i]->getID() << std::endl;	    
 }
 
 //Starvector methods
@@ -57,7 +60,7 @@ Starvector::Starvector(){
 	this->planets=NULL;
 }
 Starvector::~Starvector(){
-//NEEDS IMPLEMENT
+    delete planets;
 }
 unsigned long Starvector::addPlanet(){
 	unsigned int z= rand()%100000;
@@ -96,5 +99,7 @@ void Starvector::orbit(){
 	i++;}
 }
 void Starvector::printStarInfo(){
-//NEEDS IMPLEMENT
+//    std::cout<< "This star is composed of planets: "<< std::endl;
+//	    for(int i = 0; i < (int)current_planets; i++){
+//		    std::cout<< "Planet" << planets[i]->getType() << ". With ID" << planets[i]->getID() << std::endl;	    
 }

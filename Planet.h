@@ -1,5 +1,6 @@
 #ifndef PLANET_H
 #define PLANET_H
+
 class Planet{
 private:
     unsigned long id;
@@ -9,7 +10,7 @@ private:
 public:
     Planet(unsigned int);
     unsigned int orbit();
-    unsigned long getID(){return id;}
+    unsigned long getID(){return (unsigned long)this;}
     inline unsigned int getDistance(){return distance;}
     inline unsigned int getPos(){return pos;}
     inline char getType(){return type;}
