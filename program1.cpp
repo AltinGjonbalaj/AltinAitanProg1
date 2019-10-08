@@ -156,6 +156,7 @@ int main(){
     cerr << "\n\t=========Test #10: Linked List Insertion===========\n\n";
     List * list = new List();
     //add elements to the list
+    cerr << "here 1 \n";
     for(int index = 0 ; index < 10 ; index++ ){
         list->insert(index, new Planet(0));
     }

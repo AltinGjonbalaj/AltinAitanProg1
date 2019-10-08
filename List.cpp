@@ -24,13 +24,13 @@ List::~List(){
 	    }
 }
 void List::insert(unsigned int index, Planet * p){
-  Node* z= new Node(p);
-    if(this->head==NULL){  
-	this->head=z;
-	this->tail=z;
-	return;
-      }
-  if (index>=this->size()){
+  Node* z= this->head;
+  if(z==NULL){  
+	this->head = new Node(p);
+	this->tail = z;
+    return;
+  }
+  if (index >= this->size()){
     z->prev=this->tail;
     this->tail->next=z;
     this->tail=z;
@@ -43,12 +43,9 @@ void List::insert(unsigned int index, Planet * p){
   z->next=curr->next;
   z->prev=curr;
   curr->next=z;
-  this->current_planets++;
   return;
-// inserts an element at index, increasing the List size by 1
-// if the insert index is out of bounds, you should append to
-// the end of the list
 }
+
 Planet* List::read(unsigned int index){
   if(index>=this->size()||index<0){return NULL;}
   this->curr= this->head;
@@ -61,19 +58,24 @@ Planet* List::read(unsigned int index){
 // if index is out of bounds, return NULL
 }
 bool List::remove(unsigned int index){
-    if(index>=this->size()||index<0){return false;}
+    if(index >= this->size()||index<0){return false;}
     this->curr= this->head;
     for (unsigned int i=0;i<index;i++){
       this->nextNode();
     }
     curr->next->prev=curr->prev;
     curr->prev->next=curr->next;
-    this->current_planets--;
     return true;
 
 // remove the Planet object at index, decreasing the size of the Vector by 1.
 // return true on successful deletion or false if index is out of bounds
 }
 unsigned int List::size(){
-return this->current_planets;
+    unsigned int lSize;
+    Node* temp = this->head;    
+    while(temp != NULL){
+        temp = temp->next;
+        lSize++;
+    }
+    return lSize;
 }
