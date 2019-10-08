@@ -9,7 +9,7 @@ this->vSize=0;
 
 Vector::~Vector(){
 	for(unsigned int i=0; i<vSize; i++){
-		this->planets[i]=NULL;
+		delete planets[i];
 	}
 	delete[] this->planets;
 }
@@ -54,7 +54,7 @@ unsigned int i=0;
 
 bool Vector::remove(unsigned int index){
 	Planet** newPlanets= NULL;
-	newPlanets =new Planet*[vSize-1];
+	newPlanets = new Planet*[vSize-1];
 	if(index<0||index>=vSize){return false;}
 	for(unsigned int i=index;i<vSize-1;i++){
 		this->planets[i]=this->planets[i+1];		
@@ -64,6 +64,7 @@ bool Vector::remove(unsigned int index){
 
 	}
 	this->vSize--;
+	delete[] newPlanets;
 	return true;
 }
 unsigned int Vector::size(){

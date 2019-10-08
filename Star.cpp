@@ -65,11 +65,17 @@ Starvector::~Starvector(){
     delete planets;
 }
 unsigned long Starvector::addPlanet(){
+std::cout<<"hit line";
 	unsigned int z= rand()%100000;
+std::cout<<"hit line";	
 	unsigned long b=0;
-	Planet* p = new Planet(z);
+std::cout<<"hit line";	
+Planet* p = new Planet(z);
+std::cout<<"hit line";
 	b=p->getID();
+std::cout<<"hit line8";
 	this->planets->insert(this->current_planets,p);
+std::cout<<"hit line9";
 	return b;
 }
 bool Starvector::removePlanet(unsigned long id){
