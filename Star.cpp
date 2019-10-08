@@ -17,6 +17,7 @@ unsigned long Starlist::addPlanet(){
 	Planet* p = new Planet(z);
 	b=p->getID();
 	this->planets->insert(this->current_planets,p);
+	this->current_planets++;	
 	return b;
 }
 bool Starlist::removePlanet(unsigned long id){
@@ -28,6 +29,7 @@ bool Starlist::removePlanet(unsigned long id){
 			return true;}
 	i++;
 	}
+	this->current_planets--;
 	return false;
 }
 Planet * Starlist::getPlanet(unsigned long id){

@@ -11,7 +11,7 @@ Vector::~Vector(){
 	for(unsigned int i=0; i<vSize; i++){
 		this->planets[i]=NULL;
 	}
-	delete this->planets;
+	delete[] this->planets;
 }
 
 Planet* Vector::read(unsigned int index){
@@ -30,7 +30,7 @@ unsigned int i=0;
 		newPlanets [i]=this->read(i);
 		}
 	    newPlanets [index]=p;
-	    delete this->planets;
+	    delete[] this->planets;
 	    this->planets= newPlanets;
 	    this->vSize= index+1;
 	return;
@@ -45,7 +45,7 @@ unsigned int i=0;
 		newPlanets [i]=this->planets[i];
 		}
 	}	
-	delete this->planets;
+	delete[] this->planets;
 	this->planets= newPlanets;
 	this->vSize++;
 
