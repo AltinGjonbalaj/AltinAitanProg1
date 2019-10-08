@@ -10,6 +10,7 @@ List::Node::~Node(){
 	delete Payload;
 }
 List::List(){
+	current_planets = 0;
 	this->head=NULL;
 	this->tail=NULL;
 // A pointer to a head and tail node, both initialized to NULL
@@ -89,5 +90,5 @@ bool List::remove(unsigned int index){
 // return true on successful deletion or false if index is out of bounds
 }
 unsigned int List::size(){
-return this->current_planets;
+	return this->current_planets;
 }

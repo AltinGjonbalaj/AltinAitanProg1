@@ -156,16 +156,12 @@ int main(){
     cerr << "\n\t=========Test #10: Linked List Insertion===========\n\n";
     List * list = new List();
     //add elements to the list
-    cerr << "here 1 \n";
     for(int index = 0 ; index < 10 ; index++ ){
         list->insert(index, new Planet(0));
     }
-    cerr << "here 1 \n";
     assert(list->size() == 10);
     //***** Test that out of bounds indexes are appended to the list ****/
-    cerr << "here 2 \n";
     list->insert(20, new Planet(0));
-    cerr << "here 3 \n";
     assert(list->size() == 11);
     delete list;
     cerr << "\n\tTest #10: Passed ...\n\n";

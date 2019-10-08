@@ -67,5 +67,5 @@ bool Vector::remove(unsigned int index){
 	return true;
 }
 unsigned int Vector::size(){
-return this->vSize;
+	return this->vSize;
 }
