@@ -25,6 +25,9 @@ $(Q).o: $(Q).cpp
 run: all
 	./program1
 	
+memcheck: all
+	valgrind ./program1
+	
 #im not sure about this yet
 clean:
 	rm -rf *.o $(Q)
